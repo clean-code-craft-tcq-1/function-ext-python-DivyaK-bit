@@ -12,7 +12,7 @@ def battery_is_ok(value):
   elif charge_rate > 0.8:
     print('Charge rate is out of range!')
     return False
-  return true
+  return True
 
 if __name__ == '__main__':
    age1 = [25, 70, 0.7]
