@@ -8,13 +8,12 @@ lang_msg ={'DE' : {'warning' : "Warnung! Bitte halten Sie innerhalb des Bereichs
 lang = "EN"
 
 def battery_is_ok(battery_values):
-	parameter_range = battery_limits[battery_values["battery_parameter"]]
-	low = battery_limit[parameter_name]['min']
-	high = battery_limit[parameter_name]['max']
+	low = battery_limits[parameter_name]['min']
+	high = battery_limits[parameter_name]['max']
 	warning_value = (high * warn_limit) / 100
 	low_warning = low + warning_value
 	high_warning = high - warning_value
-	value = battery_parameter_name["value"]
+	value = battery_values["value"]
 	if value <= low or value >= high:
 		print(lang_msg[lang]['fail'])
 		return False
