@@ -10,7 +10,7 @@ def battery_parameters_Check(battery_Values):
 		check_attribute_limit(parameter_name,parameter_value,msg) 
 	return msg
 
-def check_attribute_warn_limit(parameter_name,parameter_value,msg):
+def check_attribute_limit(parameter_name,parameter_value,msg):
 	low = battery_limit[parameter_name]['min']
 	high = battery_limit[parameter_name]['max']
 	warning_value = (high * warn_limit) / 100
