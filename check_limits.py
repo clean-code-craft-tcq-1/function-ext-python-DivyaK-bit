@@ -18,11 +18,11 @@ def battery_is_ok(battery_values):
 	if value <= low or value >= high:
 		print(lang_msg[lang]['fail'])
 		return False
-	compare_battery_param_value(low_warning, value, "lower", parameter_range)
-	compare_battery_param_value(value, high_warning, "higher",parameter_range)
+	compare_battery_param_value(low_warning, value)
+	compare_battery_param_value(value, high_warning)
 	return True
 
-def compare_battery_param_value(lower_value, upper_value, boundary,parameter_range):
+def compare_battery_param_value(lower_value, upper_value):
 	if lower_value >= upper_value:
 		print(lang_msg[lang]['warning'])
 
