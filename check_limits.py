@@ -4,20 +4,24 @@ def threshold_val(max):
 	warn_limit = 5
 	return (max * warn_limit) / 100
 
-lang_msg ={'DE' : {'warning' : "Warnung! Werte haben Schwellenwert erreicht" , 'Okay' : "Batterie ist in einwandfreiem Zustand", 'fail' : "Batterielimits A-Range!"},
-	   'EN' : {'warning' : "Warning! Values have reached threshold limit" , 'Okay' : "Battery in Perfect Condition", 'fail' : " Battery Limits out of Range!"}}
+lang_msg ={'DE' : {'warning' : "Warnung! Wert hat Schwellenwert erreicht" , 'Okay' : "Batterie ist in einwandfreiem Zustand", 'fail' : "Batterielimits A-Range!"},
+	   'EN' : {'warning' : "Warning! Value has reached threshold limit" , 'Okay' : "Battery in Perfect Condition", 'fail' : " Battery Limits out of Range!"}}
+
+factor_en=["Temperature","SOC", "Rate of Charge"]
+factor_de =["Temperatur","SOC", "Rate der Gebühr"]
 
 lang = "EN"
 
-def Msg(temperature, soc, roc, attribute):
-	if (lang == "EN"):
-		print(lang_msg['EN'][attribute], "Temperature:", temperature, "SOC:", soc, "Rate of Charge:", roc)
-	elif(lang =="DE"):
-		print(lang_msg['DE'][attribute], "Temperatur:", temperature, "SOC:", soc, "Rate der Gebühr:", roc)
+def Display_Msg(value, num, attribute):
+	return print(lang_msg[lang][attribute], factor_de[num], ":", value)
+
+def Is_Battery_in_good_condition(condition):
+	if(condition):
+		print(lang_msg[lang]["Okay"])
+	else:
+		return False
 		
-
-
-def battery_is_ok(temperature, soc, roc):
+def Check_range(value, Num):
 	value_range = battery_limits[battery_values["battery_parameter"]]
 	low = value_range[0]
 	high = value_range[1]
@@ -26,7 +30,7 @@ def battery_is_ok(temperature, soc, roc):
 	high_warning = high - warning_value
 	value = battery_values["value"]
 	if value <= low or value >= high:
-		print(lang_msg[lang]['fail'])
+		Display_Msg(value, Num, 'fail')
 		return False
 	compare_battery_param_value(low_warning, value)
 	compare_battery_param_value(value, high_warning)
@@ -34,13 +38,17 @@ def battery_is_ok(temperature, soc, roc):
 
 def compare_battery_param_value(lower_value, upper_value):
 	if lower_value >= upper_value:
-		print(lang_msg[lang]['warning'])
-
+		Display_Msg(value, Num, 'warning')
+		return False
+		
+def battery_is_ok(temperature, soc, roc):
+	status =(Check_range(temperature,0)) & Check_range(soc,1)) & (Check_range(roc,2))
+	Is_Battery_in_good_condition(status)
+	return (status)
+	
 if __name__ == '__main__':
-	assert (battery_is_ok(25, ) is True)
-	assert (battery_is_ok(50, ) is False)
-	assert (battery_is_ok(, , 0}) is False)
-	assert (battery_is_ok(, 23, ) is True)
+	battery_is_ok(25, 77, 0)
+	battery_is_ok(50, 23, 0.8)
 	language = "DE"
-	assert (battery_is_ok(, 77, ) is True)
-	assert (battery_is_ok(50, ) is False)
+	battery_is_ok(25, 70, 0.7})
+	battery_is_ok(50, 85,  0})
