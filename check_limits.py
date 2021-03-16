@@ -7,7 +7,7 @@ def threshold_val(max):
 lang_msg ={'DE' : {'warning' : "Warnung! Wert hat Schwellenwert erreicht" , 'Okay' : "Batterie ist in einwandfreiem Zustand", 'fail' : "Batterielimits A-Range!"},
 	   'EN' : {'warning' : "Warning! Value has reached threshold limit" , 'Okay' : "Battery in Perfect Condition", 'fail' : " Battery Limits out of Range!"}}
 
-factor_en = ["Temperature","SOC", "Rate of Charge"]
+factor_en = ["temperature","soc", "charge_rate"]
 factor_de = ["Temperatur","SOC", "Rate der Gebühr"]
 
 lang = "EN"
