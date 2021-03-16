@@ -16,7 +16,7 @@ def Display_Msg(value, num, attribute):
 	return print(lang_msg[lang][attribute], factor_de[num], ":", value)
 
 def Is_Battery_in_good_condition(condition):
-	if(condition = 1):
+	if(condition == 1):
 		print(lang_msg[lang]['Okay'])
 		
 def Check_range(value, Num):
@@ -38,13 +38,13 @@ def compare_battery_param_value(lower_value, upper_value):
 		return 0
 		
 def battery_is_ok(temperature, soc, roc):
-	status =(Check_range(temperature, 0)) & Check_range(soc, 1)) & (Check_range(roc, 2))
+	status =(Check_range(temperature, 0)) & (Check_range(soc, 1)) & (Check_range(roc, 2))
 	Is_Battery_in_good_condition(status)
 	return (status)
 	
 if __name__ == '__main__':
 	battery_is_ok(25, 77, 0)
 	battery_is_ok(50, 23, 0.8)
-	language = "DE"
-	battery_is_ok(25, 70, 0.7})
-	battery_is_ok(50, 85,  0})
+	lang = "DE"
+	battery_is_ok(25, 70, 0.7)
+	battery_is_ok(50, 85,  0)
