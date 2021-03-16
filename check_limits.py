@@ -17,9 +17,9 @@ def Display_Msg(value, num, attribute):
 
 def Is_Battery_in_good_condition(condition):
 	if(condition):
-		print(lang_msg[lang]["Okay"])
+		print(lang_msg[lang]['Okay'])
 	else:
-		return False
+		return 0
 		
 def Check_range(value, Num):
 	value_range = battery_limits[battery_values["battery_parameter"]]
@@ -31,18 +31,18 @@ def Check_range(value, Num):
 	value = battery_values["value"]
 	if value <= low or value >= high:
 		Display_Msg(value, Num, 'fail')
-		return False
+		return 0
 	compare_battery_param_value(low_warning, value)
 	compare_battery_param_value(value, high_warning)
-	return True
+	return 1
 
 def compare_battery_param_value(lower_value, upper_value):
 	if lower_value >= upper_value:
 		Display_Msg(value, Num, 'warning')
-		return False
+		return 0
 		
 def battery_is_ok(temperature, soc, roc):
-	status =(Check_range(temperature,0)) & Check_range(soc,1)) & (Check_range(roc,2))
+	status =(Check_range(temperature, 0)) & Check_range(soc, 1)) & (Check_range(roc, 2))
 	Is_Battery_in_good_condition(status)
 	return (status)
 	
