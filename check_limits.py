@@ -7,8 +7,8 @@ def threshold_val(max):
 lang_msg ={'DE' : {'warning' : "Warnung! Wert hat Schwellenwert erreicht" , 'Okay' : "Batterie ist in einwandfreiem Zustand", 'fail' : "Batterielimits A-Range!"},
 	   'EN' : {'warning' : "Warning! Value has reached threshold limit" , 'Okay' : "Battery in Perfect Condition", 'fail' : " Battery Limits out of Range!"}}
 
-factor_en=["Temperature","SOC", "Rate of Charge"]
-factor_de =["Temperatur","SOC", "Rate der Gebühr"]
+factor_en = ["Temperature","SOC", "Rate of Charge"]
+factor_de = ["Temperatur","SOC", "Rate der Gebühr"]
 
 lang = "EN"
 
@@ -16,19 +16,15 @@ def Display_Msg(value, num, attribute):
 	return print(lang_msg[lang][attribute], factor_de[num], ":", value)
 
 def Is_Battery_in_good_condition(condition):
-	if(condition):
+	if(condition = 1):
 		print(lang_msg[lang]['Okay'])
-	else:
-		return 0
 		
 def Check_range(value, Num):
-	value_range = battery_limits[battery_values["battery_parameter"]]
-	low = value_range[0]
-	high = value_range[1]
-	warning_value = (high * warn_limit) / 100
+	low = battery_limits[factor_en[Num]]['min']
+	high = battery_limits[factor_en[Num]]['max']
+	warning_value = threshold(high)
 	low_warning = low + warning_value
 	high_warning = high - warning_value
-	value = battery_values["value"]
 	if value <= low or value >= high:
 		Display_Msg(value, Num, 'fail')
 		return 0
