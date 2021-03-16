@@ -28,10 +28,10 @@ def Check_range(value, Num):
 	if value <= low or value >= high:
 		Display_Msg(value, Num, "fail")
 		return 0
-	compare_battery_param_value(low_warning, value, high_warning)
+	compare_battery_param_value(low_warning, value, Num, high_warning)
 	return 1
 
-def compare_battery_param_value(lower_value, value, upper_value):
+def compare_battery_param_value(lower_value, value, Num, upper_value):
 	if lower_value >= value or value >= upper_value:
 		Display_Msg(value, Num, "warning")
 		return 0
