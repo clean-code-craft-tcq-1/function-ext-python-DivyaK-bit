@@ -22,11 +22,11 @@ def Is_Battery_in_good_condition(condition):
 def Check_range(value, Num):
 	low = battery_limits[factor_en[Num]]['min']
 	high = battery_limits[factor_en[Num]]['max']
-	warning_value = threshold(high)
+	warning_value = threshold_val(high)
 	low_warning = low + warning_value
 	high_warning = high - warning_value
 	if value <= low or value >= high:
-		Display_Msg(value, Num, 'fail')
+		Display_Msg(value, Num, "fail")
 		return 0
 	compare_battery_param_value(low_warning, value)
 	compare_battery_param_value(value, high_warning)
@@ -34,7 +34,7 @@ def Check_range(value, Num):
 
 def compare_battery_param_value(lower_value, upper_value):
 	if lower_value >= upper_value:
-		Display_Msg(value, Num, 'warning')
+		Display_Msg(value, Num, "warning")
 		return 0
 		
 def battery_is_ok(temperature, soc, roc):
