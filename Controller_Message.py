@@ -2,7 +2,7 @@
 Controller_Msg_EN = ["", "", "Battery in Stable Condition. Maintain It", "", ""]
 Controller_Msg_DE = ["","" ,"Batterie in Stabilem Zustand. Maintain It", "", ""]
 
-def Controller_Info(val):
+def Controller_Info(val, lang):
 	if (lang == "EN"):
 		return Controller_Msg_EN[val]
 	else:
