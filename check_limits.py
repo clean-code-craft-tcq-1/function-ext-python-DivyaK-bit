@@ -21,7 +21,7 @@ def Display_Msg_on_Console(battery_parameter, battery_limit_values, value, attri
 	if (lang == "EN"):
 		return print(Msg_Info[attribute][lang], battery_parameter, ":", value)
 	else:
-		return print(Msg_Info[attribute][lang], battery_limit_value['de'], ":", value)
+		return print(Msg_Info[attribute][lang], battery_limit_values['de'], ":", value)
 
 def Controller_Info(val):
 	if (lang == "EN"):
@@ -44,7 +44,7 @@ def Check_Off_Limit_Range(battery_parameter, value, battery_limit_values):
 	max_limit = battery_limit_values['max']
 	if value < min_limit:
 		Display_Msg_on_Console(battery_limit_values, value, 'low_breach')
-	elif value > max_Limit:
+	elif value > max_limit:
 		Display_Msg_on_Console(battery_limit_values, value, 'high_breach')
 	else:
 		Check_Warning_Range(battery_parameter, battery_limit_values, value, min_limit, max_limit)
