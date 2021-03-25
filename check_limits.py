@@ -1,5 +1,5 @@
 from Controller_Message import *
-from Console_Message import *
+from Console_message import *
 
 battery_limits = {'Temperature': {'min' : 0, 'max' : 45, 'de' : "Temperatur"}, 
 		  'SOC': {'min' : 20, 'max' : 80, 'de' : "SOC"}, 
