@@ -1,33 +1,15 @@
+from Controller_Message import *
+from Console_Message import *
+
 battery_limits = {'Temperature': {'min' : 0, 'max' : 45, 'de' : "Temperatur"}, 
 		  'SOC': {'min' : 20, 'max' : 80, 'de' : "SOC"}, 
 		  'Rate_of_Charge': {'min' : 0, 'max' : 0.8, 'de' : "Rate_der_Gebühr"}}
-
-Msg_Info = {'low_breach': {'DE' : "Nicht! Wert ist zu niedrig", 'EN' : "Failing! value is too low"}, 
-	    'low_warning' : {'DE' : "Warnung! Wert ist zu niedrig", 'EN' : "Warning! value is too Low"},
-	    'Okay' : {'DE' : "Wert ist perfekt", 'EN' : "Value is perfect"},
-	    'high_warning' : {'DE' : "Warnung! Wert ist zu hoch", 'EN' : "Warning! value is too High"},
-	    'high_breach' : {'DE' : "Nicht! Wert ist zu hoch", 'EN' : "Failing! value is too High"}}
-
-Controller_Msg_EN = ["", "", "Battery in Stable Condition. Maintain It", "", ""]
-Controller_Msg_DE = ["","" ,"Batterie in Stabilem Zustand. Maintain It", "", ""]
 
 lang = "EN"
 
 def Threshold(max):
 	warn_limit = 5
 	return (max * warn_limit) / 100
-
-def Display_Msg_on_Console(battery_parameter, battery_limit_values, value, attribute):
-	if (lang == "EN"):
-		return print(Msg_Info[attribute][lang], battery_parameter, ":", value)
-	else:
-		return print(Msg_Info[attribute][lang], battery_limit_values['de'], ":", value)
-
-def Controller_Info(val):
-	if (lang == "EN"):
-		return Controller_Msg_EN[val]
-	else:
-		return Controller_Msg_DE[val]
 
 def Check_Warning_Range(battery_parameter, battery_limit_values, value, min_limit, max_limit):
 	low_warning = min_limit + Threshold(max_limit)
