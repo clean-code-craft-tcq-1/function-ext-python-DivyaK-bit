@@ -56,8 +56,8 @@ def Is_Battery_OK(Battery_Value_Parameters):
 	print("\n")
 
 if __name__ == '__main__':
-	Is_Battery_OK({'Temperature' : 25, 'SOC' : 77, 'Rate_Of_Charge' : 0})
-	Is_Battery_OK({'Temperature' : 50, 'SOC' : 23, 'Rate_Of_Charge' : 0.8})
+	Is_Battery_OK({'Temperature' : 25, 'SOC' : 77, 'Rate_of_Charge' : 0})
+	Is_Battery_OK({'Temperature' : 50, 'SOC' : 23, 'Rate_of_Charge' : 0.8})
 	lang = "DE"
-	Is_Battery_OK({'Temperature' : 25, 'SOC' : 70, 'Rate_Of_Charge' : 0.7})
-	Is_Battery_OK({'Temperature' : 50, 'SOC' : 85, 'Rate_Of_Charge' : 0})
+	Is_Battery_OK({'Temperature' : 25, 'SOC' : 70, 'Rate_of_Charge' : 0.7})
+	Is_Battery_OK({'Temperature' : 50, 'SOC' : 85, 'Rate_of_Charge' : 0})
