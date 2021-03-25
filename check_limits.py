@@ -7,7 +7,7 @@ Msg_Info = {'low_breach': {'DE' : "Nicht! Wert ist zu niedrig", 'EN' : "Failing!
 	    'high_breach' : {'DE' : "Nicht! Wert ist zu hoch", 'EN' : "Failing! value is too High"}}
 
 Controller_Msg_EN = ["", "", "Battery in Stable Condition. Maintain It", "", ""]
-Controller_Msg_DE = [ ,"Batterie in Stabilem Zustand. Maintain It", ]
+Controller_Msg_DE = ["","" ,"Batterie in Stabilem Zustand. Maintain It", "", ""]
 
 factor_en = ["Temperature","SOC", "Rate_of_Charge"]
 factor_de = ["Temperatur","SOC", "Rate_der_Gebühr"]
