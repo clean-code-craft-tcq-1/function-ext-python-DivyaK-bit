@@ -43,9 +43,9 @@ def Check_Off_Limit_Range(battery_parameter, value, battery_limit_values):
 	min_limit = battery_limit_values['min']
 	max_limit = battery_limit_values['max']
 	if value < min_limit:
-		Display_Msg_on_Console(battery_limit_values, value, 'low_breach')
+		Display_Msg_on_Console(battery_parameter, battery_limit_values, value, 'low_breach')
 	elif value > max_limit:
-		Display_Msg_on_Console(battery_limit_values, value, 'high_breach')
+		Display_Msg_on_Console(battery_parameter, battery_limit_values, value, 'high_breach')
 	else:
 		Check_Warning_Range(battery_parameter, battery_limit_values, value, min_limit, max_limit)
 		
