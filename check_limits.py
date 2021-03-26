@@ -1,4 +1,4 @@
-from Compare_Battery_Range import *
+from Report_Off_limit import *
 
 battery_limits = {'Temperature': {'min' : 0, 'max' : 45, 'de' : "Temperatur"}, 
 		  'SOC': {'min' : 20, 'max' : 80, 'de' : "SOC"}, 
