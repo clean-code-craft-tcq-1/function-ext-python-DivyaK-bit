@@ -1,10 +1,7 @@
 from Controller_Message import *
 from Console_message import *
+from check_limits import *
 
-def Threshold(max):
-	warn_limit = 5
-	return (max * warn_limit) / 100
-  
 def Check_Warning_Range(battery_parameter, battery_limit_values, value, min_limit, max_limit, lang):
 	low_warning = min_limit + Threshold(max_limit)
 	high_warning = max_limit - Threshold(max_limit)
