@@ -5,10 +5,6 @@ battery_limits = {'Temperature': {'min' : 0, 'max' : 45, 'de' : "Temperatur"},
 		  'Rate_of_Charge': {'min' : 0, 'max' : 0.8, 'de' : "Rate_der_Gebühr"}}
 
 lang = "EN"
-
-def Threshold(max):
-	warn_limit = 5
-	return (max * warn_limit) / 100
 		
 def Is_Battery_OK(Battery_Value_Parameters):
 	print("Here is the result for the input values:")
