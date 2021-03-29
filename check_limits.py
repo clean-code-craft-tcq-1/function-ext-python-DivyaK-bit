@@ -1,8 +1,8 @@
 from Report_Off_limit import *
 
-battery_limits = {'Temperature': {'min' : 0, 'max' : 45, 'de' : "Temperatur"}, 
-		  'SOC': {'min' : 20, 'max' : 80, 'de' : "SOC"}, 
-		  'Rate_of_Charge': {'min' : 0, 'max' : 0.8, 'de' : "Rate_der_Gebühr"}}
+battery_limits = {'Temperature': {'min' : 0, 'max' : 45}, 
+		  'SOC': {'min' : 20, 'max' : 80}, 
+		  'Rate_of_Charge': {'min' : 0, 'max' : 0.8}}
 
 lang = "EN"
 		
