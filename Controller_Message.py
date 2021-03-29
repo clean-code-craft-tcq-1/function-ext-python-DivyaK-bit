@@ -1,10 +1,24 @@
 
-Controller_Msg_EN = ["", "", "Battery in Stable Condition. Maintain It", "", ""]
-Controller_Msg_DE = ["","" ,"Batterie in Stabilem Zustand. Maintain It", "", ""]
+temp_actions = {'EN' : ['Start Warming the Battery', 
+			'Warm battery little long', 
+			'Perfect Condition. Maintain the state', 
+			'Cool down battery little bit', 
+			'Cool down battery, Fast'], 
+		'DE' : ['Starten Sie die Erwärmung der Batterie', 
+			'Warme Batterie wenig lang', 
+			'Perfekter Zustand. Aufrechterhaltung des Zustands', 
+			'Batterie etwas abkühlen', 
+			'Kühlbatterie, Schnell']}
 
-def Controller_Info(val, lang):
-	if (lang == "EN"):
-		return Controller_Msg_EN[val]
-	else:
-		return Controller_Msg_DE[val]
+soc_actions = {'EN' : ['No Charge in the battery','Low Charge in the battery','Perfect Condition','Battery about to be full','Battery Full'], 
+	       'DE' : ['Keine Ladung im Akku','Niedrige Ladung in der Batterie','Perfekter Zustand','Batterie wird kurz vor voll sein','Batterie Voll']}
+
+roc_actions = {'EN' : ['Start Charging', 'Increase Charging', 'Perfect Condition. Maintain the state', 'Decrease charging', 'Stop Charging'], 
+	       'DE' : ['Starten Sie das Laden', 'Erhöhen Sie die Aufladung', 'Perfekter Zustand', 'Verringern der Aufladung', 'Stoppen Desladens']}
+
+actions = { 'TEMPERATURE' : temp_actions, 'SOC' : soc_actions, 'CHARGE_RATE' : roc_actions}
+
+def Controller_Info(battery_parameter, num, lang):
+	action_params = actions[battery_parameter]
+	return print(actions_params[lang][num])
   
