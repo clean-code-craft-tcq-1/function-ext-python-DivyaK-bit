@@ -16,7 +16,7 @@ soc_actions = {'EN' : ['No Charge in the battery','Low Charge in the battery','P
 roc_actions = {'EN' : ['Start Charging', 'Increase Charging', 'Perfect Condition. Maintain the state', 'Decrease charging', 'Stop Charging'], 
 	       'DE' : ['Starten Sie das Laden', 'Erhöhen Sie die Aufladung', 'Perfekter Zustand', 'Verringern der Aufladung', 'Stoppen Desladens']}
 
-actions = { 'TEMPERATURE' : temp_actions, 'SOC' : soc_actions, 'CHARGE_RATE' : roc_actions}
+actions = { 'Temperature' : temp_actions, 'SOC' : soc_actions, 'Rate_of_Charge' : roc_actions}
 
 def Controller_Info(battery_parameter, num, lang):
 	actions_params = actions[battery_parameter]
