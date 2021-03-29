@@ -1,18 +1,20 @@
+from Report_Off_limit import *
 
-def battery_is_ok(temperature, soc, charge_rate):
-  if temperature < 0 or temperature > 45:
-    print('Temperature is out of range!')
-    return False
-  elif soc < 20 or soc > 80:
-    print('State of Charge is out of range!')
-    return False
-  elif charge_rate > 0.8:
-    print('Charge rate is out of range!')
-    return False
+battery_limits = {'Temperature': {'min' : 0, 'max' : 45}, 
+		  'SOC': {'min' : 20, 'max' : 80}, 
+		  'Rate_of_Charge': {'min' : 0, 'max' : 0.8}}
 
-  return True
-
+lang = "EN"
+		
+def Is_Battery_OK(Battery_Value_Parameters):
+	print("Here is the result for the input values:")
+	for battery_parameter in Battery_Value_Parameters:
+		Check_Off_Limit_Range(battery_parameter, Battery_Value_Parameters[battery_parameter], battery_limits[battery_parameter], lang)
+	print("\n")
 
 if __name__ == '__main__':
-  assert(battery_is_ok(25, 70, 0.7) is True)
-  assert(battery_is_ok(50, 85, 0) is False)
+	Is_Battery_OK({'Temperature' : 25, 'SOC' : 77, 'Rate_of_Charge' : 0})
+	Is_Battery_OK({'Temperature' : 50, 'SOC' : 23, 'Rate_of_Charge' : 0.8})
+	lang = "DE"
+	Is_Battery_OK({'Temperature' : 25, 'SOC' : 70, 'Rate_of_Charge' : 0.7})
+	Is_Battery_OK({'Temperature' : 50, 'SOC' : 85, 'Rate_of_Charge' : 0})
