@@ -6,8 +6,5 @@ Msg_Info = {'low_breach': {'DE' : "Nicht! Wert ist zu niedrig", 'EN' : "Failing!
 	    'high_warning' : {'DE' : "Warnung! Wert ist zu hoch", 'EN' : "Warning! value is too High"},
 	    'high_breach' : {'DE' : "Nicht! Wert ist zu hoch", 'EN' : "Failing! value is too High"}}
 
-def Display_Msg_on_Console(battery_parameter, battery_limit_values, value, attribute, lang):
-	if (lang == "EN"):
-		return print(Msg_Info[attribute][lang], battery_parameter, ":", value)
-	else:
-		return print(Msg_Info[attribute][lang], battery_limit_values['de'], ":", value)
+def Display_Msg_on_Console(battery_parameter, value, attribute, lang):
+	return print(Msg_Info[attribute][lang], battery_parameter, ":", value)
